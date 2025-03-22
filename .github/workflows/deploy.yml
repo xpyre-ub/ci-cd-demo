@@ -1,0 +1,33 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      -  main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      -  name: CHeckout Repository
+         uses: actions/checkout@v3
+
+         
+      -  name: Install Dependencies
+         uses: echo "Installing dependencies (if needed)"
+
+         
+      -  name: Build Project
+         uses: echo "Building project..."
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+        
+      -  name: CHeckout Repository
+         uses: actions/checkout@v3
+
+      
+      -  name: Deploy to Github Pages
+         uses: echo "deploying application..."
